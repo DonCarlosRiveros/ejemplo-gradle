@@ -8,7 +8,7 @@ pipeline
     	{
     		steps
     		{
-    			scripts
+    			script
     			{
     				stage ('build & test')
     				{
