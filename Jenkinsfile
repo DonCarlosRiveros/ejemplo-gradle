@@ -12,7 +12,7 @@ pipeline
     			{
     				stage ('build & test')
     				{
-    					sh './gradlew clean build'
+    					sh 'gradle clean build'
     				}
     				stage ('SonarScanner')
     				{
