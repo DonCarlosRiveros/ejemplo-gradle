@@ -15,8 +15,10 @@ pipeline
                 {
                     println 'Se ha seleccionado ' + params.opciones + ' para la construcción de la herramienta'
                     echo("${params.opciones}")
+                    echo (${params.buildtool)
                     echo (${params.buildtool}.groovy)
-                    def tarea = load "${params.buildtool}.groovy"
+                    /* def tarea = load "${params.buildtool}.groovy" */
+                    def tarea = load "(${params.opciones}) + '.groovy')"
                     tarea.call()
                 }
             }
