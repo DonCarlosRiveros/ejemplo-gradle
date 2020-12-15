@@ -1,4 +1,4 @@
-def call()
+def llamada_maven()
 {
     stage('Compile')
     {
