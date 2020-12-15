@@ -12,12 +12,13 @@ def call()
     {
         sh './mvnw clean package -e'
     }
-    stage('SonarQube')
+    stage('Sonar')
     {
-        withSonarQubeEnv(installationName: 'sonar')
+        def sonarhome = tool 'sonar'
         {
-            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
-        }
+            withSonarQubeEnv('sonar')
+            {
+                sh "${sonarhome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
     }
     stage('Nexus')
     {
