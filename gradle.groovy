@@ -1,4 +1,4 @@
-def call()
+def llamada_gradle()
 {
 	stage('Build')
 	{
