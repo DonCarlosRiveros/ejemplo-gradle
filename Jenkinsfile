@@ -13,7 +13,7 @@ pipeline
             {
                 script
                 {
-                    println 'Se ha seleccionado ' + params.opciones + ' para la construcción de la herramienta'
+                    println 'Se ha seleccionado ' + parameters.opciones + ' para la construcción de la herramienta'
                     def tarea = load "${params.buildtool}.groovy"
                     tarea.call()
                 }
