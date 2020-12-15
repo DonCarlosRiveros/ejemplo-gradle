@@ -19,6 +19,8 @@ def call()
             withSonarQubeEnv('sonar')
             {
                 sh "${sonarhome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
+            }
+        }
     }
     stage('Nexus')
     {
