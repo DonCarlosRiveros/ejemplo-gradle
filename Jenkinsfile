@@ -18,7 +18,7 @@ pipeline
                     println "${params.buildtool}"
                     println "${params.opciones}" + '.groovy'
                     /* def tarea = load "${params.buildtool}.groovy" */
-                    def tarea = load ("${params.opciones}" + '.groovy')"
+                    def tarea = load ("${params.opciones}" + '.groovy')
                     tarea.call()
                 }
             }
