@@ -24,15 +24,15 @@ pipeline
     				}
     				stage ('run')
     				{
-
+    					sh 'nohup gradle bootRun &'
     				}
-    				stage ('test')
+    				stage ('rest')
     				{
-
+    					sh 'curl -X GET http://localhost:8081/rest/mscovid/test?msg=testing'
     				}
     				stage ('nexus')
     				{
-
+    					sh 'mvn clean package sonar:sonar'
     				}
 				}
             }
