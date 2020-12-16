@@ -18,7 +18,7 @@ pipeline
                     println "${params.opciones}" + '.groovy' */
                     def archivo_groovy = "${params.opciones}" + '.groovy'
                     /* println "$archivo_groovy" */
-                    def tarea = load ("${archivo_groovy}")
+                    def tarea = load "${archivo_groovy}"
                     tarea.call()
                 }
             }
