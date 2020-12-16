@@ -18,8 +18,7 @@ def llamada()
         {
             withSonarQubeEnv('SonarQubeScanner')
             {
-                /* sh "${sonarhome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build" */
-                sh "${sonarhome}/bin/sonar-scanner"
+                sh "${sonarhome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
             }
         }
     }
