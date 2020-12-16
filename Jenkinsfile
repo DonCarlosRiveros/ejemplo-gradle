@@ -14,12 +14,8 @@ pipeline
                 script
                 {
                     println 'Se ha seleccionado ' + params.opciones + ' para la construcción de la herramienta'
-                    /* println "${params.opciones}"
-                    println "${params.opciones}" + '.groovy' */
                     def archivo_groovy = "${params.opciones}" + '.groovy'
-                    /* println "$archivo_groovy" */
-                    /* def tarea = load "${archivo_groovy}" */
-                    def tarea = load 'maven.groovy'
+                    def tarea = load "${archivo_groovy}"
                     tarea.llamada()
                 }
             }
