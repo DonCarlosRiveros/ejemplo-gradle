@@ -1,41 +1,23 @@
 pipeline
 {
-	agent any
-
+    agent any
+    parameters
+    {
+        choice(name: 'opciones', choices: ['maven','gradle'], description: 'COVID-19 : Opciones disponibles para construcción de la aplicación')
+    }
     stages
     {
-    	stage('Pipeline')
-    	{
-    		steps
-    		{
-    			script
-    			{
-    				stage ('build & test')
-    				{
-    					sh 'gradle clean build'
-    				}
-    				stage ('SonarScanner')
-    				{
-    					//def scannerHome = tool 'SonarScanner';
-    					withSonarQubeEnv('sonar')
-    					{
-    						sh "/home/carlos/sonar-scanner-4.5.0.2216/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build "
-    					}
-    				}
-    				stage ('run')
-    				{
-    					sh 'nohup gradle bootRun &'
-    				}
-    				stage ('rest')
-    				{
-    					sh 'curl -X GET http://localhost:8081/rest/mscovid/test?msg=testing'
-    				}
-    				stage ('nexus')
-    				{
-    					sh 'mvn clean package sonar:sonar'
-    				}
-				}
+        stage('UnicoPaso')
+        {
+            steps
+            {
+                script
+                {
+                    println 'Se ha seleccionado ' + params.opciones + ' para la construcción de la herramienta'
+                    def tarea = load "${params.buildtool}.groovy"
+                    tarea.call()
+                }
             }
         }
     }
- }	
+}
