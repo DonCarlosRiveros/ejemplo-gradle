@@ -14,7 +14,7 @@ def llamada_maven()
     }
     stage('Sonar')
     {
-        def sonarhome = tool 'sonar'
+        def sonarhome = tool('sonar')
         {
             withSonarQubeEnv('sonar')
             {
