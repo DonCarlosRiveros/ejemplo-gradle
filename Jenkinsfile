@@ -20,7 +20,7 @@ pipeline
                     /* println "$archivo_groovy" */
                     /* def tarea = load "${archivo_groovy}" */
                     def tarea = load 'maven.groovy'
-                    tarea.call()
+                    tarea.llamada()
                 }
             }
         }
