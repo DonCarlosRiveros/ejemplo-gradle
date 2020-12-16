@@ -16,7 +16,7 @@ def llamada()
     {
         def sonarhome = tool('SonarQubeScanner')
         {
-            withSonarQubeEnv('sonar')
+            withSonarQubeEnv('SonarQubeScanner')
             {
                 sh "${sonarhome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
             }
