@@ -37,7 +37,7 @@ pipeline
         }
         failure
         {
-            def fallo = "[$BUILD_USER] [${env.JOB_NAME}] [params.opciones] - Ejecución fallida en stage "
+            def fallo = "[$BUILD_USER] [${env.JOB_NAME}] [params.opciones] - Ejecución fallida en stage $NOMBRE_STAGE ($NOMBRE_TOOL)"
             slackSend color: "danger", message: $fallo
         }
     }
