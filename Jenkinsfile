@@ -7,8 +7,6 @@ pipeline
     }
     environment
     {
-        NOMBRE_STAGE = ''
-        NOMBRE_TOOL = ''
         NOMBRE_ARCHIVO_GROOVY = ''
         EXITO = ''
         FALLO = ''
@@ -39,7 +37,7 @@ pipeline
         }
         failure
         {
-            slackSend color: "danger", message: "[Carlos M. Riveros C.] [${env.JOB_NAME}] [params.opciones] - Ejecución fallida en stage ${NOMBRE_STAGE}"
+            slackSend color: "danger", message: "[Carlos M. Riveros C.] [${env.JOB_NAME}] [params.opciones] - Ejecución fallida en stage ${env.STAGE_NAME}"
         }
     }
 }
