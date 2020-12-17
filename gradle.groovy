@@ -7,12 +7,10 @@ def llamada_gradle()
 	stage('Sonar')
 	{
 		def sonarhome = tool 'sonar'
-		{
 			withSonarQubeEnv('sonar')
 			{
 				sh "${sonarhome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
 			}
-		}
 	}
 	stage('Run')
 	{
