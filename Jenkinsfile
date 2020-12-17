@@ -7,11 +7,11 @@ pipeline
     }
     environment
     {
-        NOMBRE_STAGE = ""
-        NOMBRE_TOOL = ""
-        NOMBRE_ARCHIVO_GROOVY = ""
-        EXITO =""
-        FALLO = ""
+        NOMBRE_STAGE = ''
+        NOMBRE_TOOL = ''
+        NOMBRE_ARCHIVO_GROOVY = ''
+        EXITO = ''
+        FALLO = ''
     }
     stages
     {
