@@ -35,15 +35,14 @@ pipeline
     {
         success
         {
-            EXITO = "[{$BUILD_USER}] [${env.JOB_NAME}]"
-            EXITO = EXITO +  "[params.opciones]" + ' - Ejecución exitosa'
+            "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+
+            EXITO = "[{$BUILD_USER}] [${env.JOB_NAME}] [params.opciones] - Ejecución exitosa"
             slackSend color: "good", message: $EXITO
         }
         failure
         {
-            FALLO = "[{$BUILD_USER}] [${env.JOB_NAME}]"
-            FALLO = FALLO + "[params.opciones]" + ' - Ejecución fallida en stage '
-            FALLO = FALLO + "${NOMBRE_STAGE}" + ' ' + "${NOMBRE_TOOL}"
+            FALLO = "[{$BUILD_USER}] [${env.JOB_NAME}] [params.opciones] - Ejecución fallida en stage ${NOMBRE_STAGE}"
             slackSend color: "danger", message: $FALLO
         }
     }
