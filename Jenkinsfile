@@ -35,8 +35,6 @@ pipeline
     {
         success
         {
-            "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-
             EXITO = "[{$BUILD_USER}] [${env.JOB_NAME}] [params.opciones] - Ejecución exitosa"
             slackSend color: "good", message: $EXITO
         }
