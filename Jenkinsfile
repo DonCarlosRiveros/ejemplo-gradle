@@ -33,11 +33,14 @@ pipeline
     {
         success
         {
-            slackSend color: "good", message: "[Carlos M. Riveros C.] [${env.JOB_NAME}] [$params.opciones] - Ejecución exitosa"
+            /* slackSend color: "good", message: "[Carlos M. Riveros C.] [${env.JOB_NAME}] [$params.opciones] - Ejecución exitosa" */
+            slackSend color: "good", message: "Ejecución exitosa"
         }
         failure
         {
-            slackSend color: "danger", message: "[Carlos M. Riveros C.] [${env.JOB_NAME}] [$params.opciones] - Ejecución fallida en stage ${env.STAGE_NAME}"
+            /* slackSend color: "danger", message: "[Carlos M. Riveros C.] [${env.JOB_NAME}] [$params.opciones] - Ejecución fallida en stage ${env.STAGE_NAME}" */
+            slackSend color: "danger", message: "Ejecución fallida en stage "
+            
         }
     }
 }
