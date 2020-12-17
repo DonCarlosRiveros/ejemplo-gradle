@@ -10,6 +10,8 @@ pipeline
         NOMBRE_STAGE = ""
         NOMBRE_TOOL = ""
         NOMBRE_ARCHIVO_GROOVY = ""
+        EXITO = ""
+        FALLO = ""
     }
     stages
     {
@@ -33,13 +35,13 @@ pipeline
     {
         success
         {
-                def exito = "[$BUILD_USER] [${env.JOB_NAME}]" + [params.opciones] + '- Ejecución exitosa'
-                slackSend color: "good", message: $exito
+                EXITO = "[$BUILD_USER] [${env.JOB_NAME}]" + [params.opciones] + '- Ejecución exitosa'
+                slackSend color: "good", message: $EXITO
         }
         failure
         {
-            def fallo = "[$BUILD_USER] [${env.JOB_NAME}]" + [params.opciones] + '- Ejecución fallida en stage $NOMBRE_STAGE ([)$NOMBRE_TOOL)'
-            slackSend color: "danger", message: $fallo
+            FALLO = "[$BUILD_USER] [${env.JOB_NAME}]" + [params.opciones] + '- Ejecución fallida en stage $NOMBRE_STAGE ([)$NOMBRE_TOOL)'
+            slackSend color: "danger", message: $FALLO
         }
     }
 }
