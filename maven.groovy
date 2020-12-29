@@ -1,26 +1,24 @@
-def llamada_maven()
+def llamada()
 {
     stage('Compile')
     {
-        sh './mvnw clean compile -e'   
+        sh 'mvn clean compile -e'   
     }
     stage('Test')
     {
-        sh './mvnw clean test -e'   
+        sh 'mvn clean test -e'   
     }
     stage('Jar')
     {
-        sh './mvnw clean package -e'
+        sh 'mvn clean package -e'
     }
     stage('Sonar')
     {
-        def sonarhome = tool 'sonar'
-        {
+        def sonarhome = tool('sonar')
             withSonarQubeEnv('sonar')
             {
                 sh "${sonarhome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
             }
-        }
     }
     stage('Nexus')
     {

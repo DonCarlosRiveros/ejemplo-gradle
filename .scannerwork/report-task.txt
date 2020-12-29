@@ -1,0 +1,6 @@
+projectKey=ejemplo-gradle
+serverUrl=http://localhost:9000
+serverVersion=8.5.1.38104
+dashboardUrl=http://localhost:9000/dashboard?id=ejemplo-gradle
+ceTaskId=AXZrz9CgrmXnr10WOdgS
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXZrz9CgrmXnr10WOdgS

@@ -14,8 +14,9 @@ pipeline
                 script
                 {
                     println 'Se ha seleccionado ' + params.opciones + ' para la construcción de la herramienta'
-                    def tarea = load "${params.buildtool}.groovy"
-                    tarea.call()
+                    def archivo_groovy = "${params.opciones}" + '.groovy'
+                    def tarea = load "${archivo_groovy}"
+                    tarea.llamada()
                 }
             }
         }

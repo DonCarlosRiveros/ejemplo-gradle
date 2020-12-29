@@ -1,4 +1,4 @@
-def llamada_gradle()
+def llamada()
 {
 	stage('Build')
 	{
@@ -7,11 +7,9 @@ def llamada_gradle()
 	stage('Sonar')
 	{
 		def sonarhome = tool 'sonar'
-		{
 			withSonarQubeEnv('sonar')
 			{
 				sh "${sonarhome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
-			}
 		}
 	}
 	stage('Run')
@@ -20,7 +18,8 @@ def llamada_gradle()
 	}
 	stage('Rest')
 	{
-	    sh "curl -X GET http://localhost:8082/rest/mscovid/test?msg=testing"
+		sh "sleep 10"
+		sh "curl -X GET http://localhost:8082/rest/mscovid/test?msg=testing"
 	}
 	stage('Nexus')
 	{
